@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node;
 	char *token;
 
-	token = strtok(NULL, " \n"); // Get the argument after "push"
+	token = strtok(NULL, " \n"); /* Get the argument after "push" */
 
 	if (token == NULL || !is_number(token))
 	{

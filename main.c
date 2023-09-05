@@ -12,11 +12,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *file;
-	char *line = NULL;
-	size_t len = 0;
-	ssize_t read;
-	unsigned int line_number = 0;
-	stack_t *stack = NULL;
+
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
@@ -39,38 +35,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
-	while ((read = getline(&line, &len, file)) != -1)
-	{
-		line_number++;
-		char *opcode = strtok(line, " \n");
-
-		if (opcode == NULL || opcode[0] == '#')
-			continue;
-
-		int found = 0;
-		for (int i = 0; instructions[i].opcode != NULL; i++)
-		{
-			if (strcmp(opcode, instructions[i].opcode) == 0)
-			{
-				instructions[i].f(&stack, line_number);
-				found = 1;
-				break;
-			}
-		}
-
-		if (!found)
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-			free(line);
-			fclose(file);
-			free_stack(&stack);
-			exit(EXIT_FAILURE);
-		}
-	}
-
-	free(line);
-	fclose(file);
-	free_stack(&stack);
+	read_instructions(file, instructions);
 	return (0);
 }
