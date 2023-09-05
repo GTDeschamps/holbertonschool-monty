@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+*read_instructions - read and execute the instruction of monty file
+*@file: name of file
+*@instructions: instructions
+*Return: void
+*/
+
 void read_instructions(FILE *file, instruction_t *instructions)
 {
 	char *line = NULL;
