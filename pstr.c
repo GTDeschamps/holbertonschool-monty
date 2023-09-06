@@ -9,8 +9,11 @@ void pstr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
-	while (*stack != NULL && (*stack)->n != 0)
+	while (*stack != NULL)
 	{
+		if ((*stack)->n <= 0 || (*stack)->n > 127)
+		break;
+
 		putchar((*stack)->n);
 		*stack = (*stack)->next;
 	}
