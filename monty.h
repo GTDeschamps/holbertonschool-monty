@@ -50,5 +50,6 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void read_instructions(FILE *file, instruction_t *instructions);
 void sub(stack_t **stack, unsigned int line_number);
+void my_div(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
