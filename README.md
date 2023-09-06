@@ -4,7 +4,7 @@ Project Monty
 
 The Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
 
-## Function
+## Principales Function of Monty
 
 Push:
 
@@ -75,26 +75,30 @@ gdeschampsunix@LPT-Tom_Phoenix:~/holbertonschool-monty$ ./monty bytecodes/06.m
 677
 ```
 swap:
-The opcode swap swaps the top two elements of the stack.
+The opcode "swap" swaps the top two elements of the stack.
+
+the swap function is used to swap the values of the top two elements of the stack. It performs error checking to ensure that the stack contains at least two elements before attempting the swap. If the stack is too short, it reports an error and exits with an error code. If the swap is possible, it swaps the values and modifies the stack accordingly.
 ```bash
-julien@ubuntu:~/monty$ cat bytecodes/09.m
-push 1
-push 2
-push 3
+push 10
+push 242
+push 50
 pall
 swap
 pall
-julien@ubuntu:~/monty$ ./monty bytecodes/09.m
-3
-2
-1
-2
-3
-1
-julien@ubuntu:~/monty$
+
+gdeschampsunix@LPT-Tom_Phoenix:~/holbertonschool-monty$ ./monty bytecodes/09.m
+50
+242
+10
+242
+50
+10
+gdeschampsunix@LPT-Tom_Phoenix:~/holbertonschool-monty$
 ```
 nop:
-The opcode nop doesn’t do anything.
+The opcode "nop" doesn’t do anything.
+
+the nop function is essentially a "do nothing" function. It takes two parameters that are not used within the function and doesn't perform any meaningful operations. This type of function is sometimes used as a placeholder or for compatibility purposes when a function is required by an interface or structure but doesn't need to do anything specific in the current context.
 
 
 
