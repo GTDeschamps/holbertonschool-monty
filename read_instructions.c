@@ -22,7 +22,7 @@ void read_instructions(FILE *file, instruction_t *instructions)
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
-		
+
 		int found = 0;
 
 		for (int i = 0; instructions[i].opcode != NULL; i++)
