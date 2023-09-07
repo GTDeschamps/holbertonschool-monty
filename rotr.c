@@ -14,7 +14,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 
 	ptr = *stack;
 
-	if (*stack != NULL || (*stack)->next != NULL)
+	if (*stack != NULL && (*stack)->next != NULL)
 	{
 		while (ptr->next != NULL)
 			ptr = ptr->next;
