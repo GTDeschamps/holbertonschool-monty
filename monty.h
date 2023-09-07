@@ -6,7 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdbool.h> /* Pour utiliser le type de données bool*/
 
+int is_it_queue; /* Déclaration de la variable global*/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -57,5 +59,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-
+void push_queue(stack_t **stack, unsigned int line_number);
+void is_stack(stack_t **stack, unsigned int line_number);
+void is_queue(stack_t **stack, unsigned int line_number);
 #endif /* MONTY_H */

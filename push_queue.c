@@ -1,20 +1,16 @@
 #include "monty.h"
 
 /**
- * push - Pushes an element onto the stack.
+ * push_queue - Pushes an element onto the stack.
  * @stack: Double pointer to the top of the stack.
  * @line_number: Line number in the bytecode file.
  */
-void push(stack_t **stack, unsigned int line_number)
+void push_queue(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
+	stack_t *ptr;
 	char *token;
 
-	if (is_it_queue == 1)
-	{
-		push_queue(stack, line_number);
-		return;
-	}
 	token = strtok(NULL, " \n"); /* Get the argument after "push" */
 
 	if (token == NULL || !is_number(token))
@@ -31,17 +27,19 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	new_node->n = atoi(token);
-	new_node->prev = NULL;
+	new_node->next = NULL;
 
 	if (*stack == NULL)
 	{
-		new_node->next = NULL;
+		new_node->prev = NULL;
+		*stack = new_node;
 	}
 	else
 	{
-		new_node->next = *stack;
-		(*stack)->prev = new_node;
+		ptr = *stack;
+		while (ptr->next != NULL)
+			ptr = ptr->next;
+		ptr->next = new_node;
+		new_node->prev = ptr;
 	}
-
-	*stack = new_node;
 }

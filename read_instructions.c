@@ -1,11 +1,11 @@
 #include "monty.h"
 
 /**
-*read_instructions - read and execute the instruction of monty file
-*@file: name of file
-*@instructions: instructions
-*Return: void
-*/
+ *read_instructions - read and execute the instruction of monty file
+ *@file: name of file
+ *@instructions: instructions
+ *Return: void
+ */
 
 void read_instructions(FILE *file, instruction_t *instructions)
 {
@@ -22,7 +22,7 @@ void read_instructions(FILE *file, instruction_t *instructions)
 
 		if (opcode == NULL || opcode[0] == '#')
 			continue;
-
+		
 		int found = 0;
 
 		for (int i = 0; instructions[i].opcode != NULL; i++)
