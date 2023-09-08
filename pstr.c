@@ -8,14 +8,17 @@
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
+	stack_t *ptr;
 
-	while (*stack != NULL)
+	ptr = *stack;
+
+	while (ptr != NULL)
 	{
-		if ((*stack)->n <= 0 || (*stack)->n > 127)
+		if (ptr->n <= 0 || ptr->n > 127)
 		break;
 
-		putchar((*stack)->n);
-		*stack = (*stack)->next;
+		putchar(ptr->n);
+		ptr = ptr->next;
 	}
 	putchar('\n');
 }
